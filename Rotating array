@@ -1,0 +1,13 @@
+size,rotate =map( int,input().split())
+o_list = list(map(int,input().split()))
+list1 =[]
+list2 =[]
+for num in range(0,rotate):
+    list1.append(o_list[num])
+for num in range(rotate,size):
+    list2.append(o_list[num])
+
+result = []
+result = list2+list1
+
+print (result)
