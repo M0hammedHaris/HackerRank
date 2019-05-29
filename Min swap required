@@ -1,0 +1,16 @@
+
+def min_swap(_list,n):
+   swaps =0
+   for i in range(0, n - 1):
+       while _list[i] != i + 1:
+           t = _list[_list[i] - 1]
+           _list[_list[i] - 1] = _list[i]
+           _list[i] = t
+           swaps += 1
+   return swaps
+
+
+
+n = int(input())
+_list = list(map(int,input().split()))
+print (min_swap(_list,n))
