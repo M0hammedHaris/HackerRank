@@ -1,0 +1,12 @@
+
+hourglass =[list(map(int,input().split())) for i in range(0,6)]
+maxi = -100000000 
+for i in range (0,4):
+    for j in range(0,4):
+        top  = hourglass[i][j]+hourglass[i][j+1]+hourglass[i][j+2]
+        mid  = hourglass[i+1][j+1] 
+        bot  = hourglass[i+2][j]+hourglass[i+2][j+1]+hourglass[i+2][j+2]
+        if top + mid + bot > maxi:
+            maxi = top + mid + bot
+        
+print (maxi)
