@@ -1,0 +1,31 @@
+maxelem, inputs = [int(n) for n in input().split(" ")]
+d = {}
+for _ in range(inputs):
+    x, y, incr = [int(n) for n in input().split(" ")]
+    d.setdefault(x,0)
+    d[x]=d[x]+incr 
+    if(y <= maxelem+2):
+        d.setdefault(y+1,0)
+        d[y+1]=d[y+1]-incr
+
+maxx = 0
+x= 0 
+
+for i in sorted(d): 
+    x+=d[i]
+    if(maxx<x): 
+        maxx=x
+
+print(maxx)
+
+
+
+
+Sample Input
+5 3
+1 2 100
+2 5 100
+3 4 100
+
+Sample Output
+200
