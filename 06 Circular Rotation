@@ -1,0 +1,25 @@
+n,k,q = map(int,input().split())
+number = list(map(int,input().split()))
+pos =[]
+k=k%n
+for i in range(0,q):
+    pos.append(int(input()))
+
+rotated_list = number[n-k:]+number[0:n-k]
+for i in pos:
+    print (rotated_list[i],end="\n")
+
+
+
+
+
+Sample Input 0
+3 2 3
+1 2 3
+0
+1
+2
+Sample Output 0
+2
+3
+1
