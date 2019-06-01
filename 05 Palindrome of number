@@ -1,0 +1,23 @@
+def rev_sum(number):
+    count = 0
+    while True:
+        rev = str(number)
+        if rev == rev[::-1]:
+            break
+        else:
+            rev_num = int(rev[::-1])
+            number += rev_num
+            count += 1
+    print(count, number)
+    
+number= int(input())
+rev_sum(number)
+
+
+
+
+
+Sample Input 0
+195
+Sample Output 0
+4 9339
