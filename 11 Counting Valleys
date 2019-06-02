@@ -1,0 +1,48 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countingValleys function below.
+def countingValleys(n, s):
+    move =0 
+    lvl =0
+    for moves in s:
+        if moves == 'U':
+            move += 1
+            if move == 0:
+                lvl += 1
+        else:
+            move -= 1
+    return lvl 
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    s = input()
+
+    result = countingValleys(n, s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+Sample Input
+8
+UDDDUDUU
+Sample Output
+1
+Explanation
+If we represent _ as sea level, a step up as /, and a step down as \, Gary's hike can be drawn as:
+_/\      _
+   \    /
+    \/\/
+He enters and leaves one valley.
