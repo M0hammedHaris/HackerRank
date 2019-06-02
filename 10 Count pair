@@ -1,0 +1,14 @@
+def pair_count(n, ar):
+    pair = 0
+    max_elem = max(ar)
+    ar_list = [0]*(max_elem+1)
+    for elem in ar:
+        ar_list[elem] += 1
+    for count in ar_list:
+        if count >= 2:
+            pair = pair + (count//2)   
+    return pair 
+
+n = int(input())
+ar = list(map(int, input().rstrip().split()))
+print( pair_count(n, ar))
