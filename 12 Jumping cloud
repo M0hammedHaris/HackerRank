@@ -1,0 +1,13 @@
+def jumpingOnClouds(c,n):
+    jumps = 0
+    i =0
+    while i<n-1:
+        if i < n-2 and c[i+2]!=1:
+            i += 1
+        if i != n-1:
+            jumps += 1
+        i += 1
+    return jumps
+n = int(input())
+c = list(map(int, input().split()))
+print (jumpingOnClouds(c,n))
