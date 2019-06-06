@@ -1,0 +1,21 @@
+def equalizeArray(arr):
+    unique_list =[0]*(max(arr)+1)
+    for num in arr:
+        unique_list[num] +=1
+    return (len(arr)-max(unique_list))
+    
+    
+    
+n = int(input())
+arr = list(map(int, input().rstrip().split()))
+print(equalizeArray(arr))
+
+
+
+
+
+Sample Input
+5
+3 3 2 1 3
+Sample Output
+2   
