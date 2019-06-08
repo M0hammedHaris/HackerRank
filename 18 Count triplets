@@ -1,0 +1,28 @@
+from collections import Counter
+def countTriplets(arr, r):
+    r1 = Counter()
+    r2 = Counter()
+    count = 0
+    for v in arr:
+        if v/r in r2:
+            count += r2[v/r]
+        if v/r in r1:
+            r2[v] += r1[v/r]
+        r1[v] += 1
+    return count
+
+nr = input().rstrip().split()
+n = int(nr[0])
+r = int(nr[1])
+arr = list(map(int, input().rstrip().split()))
+ans = countTriplets(arr, r)
+print(ans)
+
+
+
+
+Sample Input 0
+4 2
+1 2 2 4
+Sample Output 0
+2
