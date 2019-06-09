@@ -1,0 +1,111 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+# Complete the freqQuery function below.
+def freqQuery(queries):
+    freq = Counter()
+    cnt = Counter()
+    res = []
+    
+    for q in queries:
+        if q[0]==1:
+            cnt[freq[q[1]]]-=1
+            freq[q[1]]+=1
+            cnt[freq[q[1]]]+=1
+    
+        elif q[0]==2:
+            if freq[q[1]]>0:
+                cnt[freq[q[1]]]-=1
+                freq[q[1]]-=1
+                cnt[freq[q[1]]]+=1
+    
+        else:
+            if cnt[q[1]]>0:
+                res.append(1)
+            else:
+                res.append(0)
+    
+    return res
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    queries = []
+
+    for _ in range(q):
+        queries.append(list(map(int, input().rstrip().split())))
+
+    ans = freqQuery(queries)
+
+    fptr.write('\n'.join(map(str, ans)))
+    fptr.write('\n')
+
+    fptr.close()
+
+
+
+Sample Input 0
+8
+1 5
+1 6
+3 2
+1 10
+1 10
+1 6
+2 5
+3 2
+Sample Output 0
+0
+1
+
+
+
+
+
+
+
+from collections import Counter
+def freqQuery(queries):
+    new_list = []
+    res =[]
+    for q in queries:
+        if q[0] == 1:
+            new_list.append(q[1])
+           # print(new_list)
+        elif q[0] == 2 and new_list != []:
+            new_list.remove(q[1])
+           # print(new_list)
+        elif q[0] == 3:
+            if new_list == []:
+                res.append(0)
+                #print(res)
+            else:
+                count  = Counter(new_list)
+                #print(count)
+                for i in (new_list):
+                    if count[i] == q[1]:
+                        res.append(1)
+                        #print(res)
+                        break
+                    elif count[i] != q[1]:
+                        res.append(0)
+                        #print(res)
+                        break
+    return res
+
+
+
+
+q = int(input().strip())
+queries = []
+for _ in range(q):
+    queries.append(list(map(int, input().rstrip().split())))
+ans = freqQuery(queries)
+print(*ans,sep ='\n')
