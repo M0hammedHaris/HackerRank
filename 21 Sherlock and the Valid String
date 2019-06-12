@@ -1,0 +1,32 @@
+
+from collections import Counter
+def isValid(s):
+    count = Counter(s)
+    freq = []
+    for value in count.values():
+        freq.append(value)
+    print(freq)
+    _max = max(freq)
+    _min = min(freq)
+    if _max - _min == 0:
+        return "YES"
+    elif freq.count(_max) == 1 and _max - _min ==1:
+        return "YES"
+    elif freq.count(_min)==1:
+        freq.remove(_min)
+        if max(freq)-min(freq) == 0:
+            return "YES"
+        else:
+            return "NO"
+    else:
+        return "NO"
+s = input()
+result = isValid(s)
+print(result)
+
+
+
+Sample Input 0
+aabbcd
+Sample Output 0
+NO
