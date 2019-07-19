@@ -1,0 +1,27 @@
+m,n = map(int,input().split())
+lis = list(map(int,input().split()))
+sub=[]
+for i in range(m):
+    for j in range(i,m+1):
+        if i!=j:
+            sub.append(lis[i:j])
+count =0
+for li in sub:
+    prod =1
+    for _ in li:
+        prod*=_
+    if prod < n:
+        count += 1
+        
+print(count)
+
+
+Sample Input 
+4 10
+1 2 3 4
+Sample Output
+7
+
+Explanation 
+The contiguous subarrays are {1}, {2}, {3}, {4}
+{1, 2}, {1, 2, 3} and {2, 3} whose count is 7.
