@@ -1,0 +1,25 @@
+from itertools import combinations
+from math import gcd
+
+n= list(map(int,input().split()))
+lis = list(map(int,input().split()))
+
+st= set(lis)
+num = len(st)
+sub= combinations(st,num-1)
+mx =0
+
+for li in sub:
+    hcf = max(li)
+    for _ in li:
+        hcf = gcd(hcf,_)
+    mx=max(mx,hcf)
+    
+print(mx)
+
+
+Sample Input 
+6
+16 12 4 12 10 12
+Sample Output 
+4
